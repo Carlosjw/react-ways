@@ -16,9 +16,12 @@ const targets = document.querySelectorAll('.target');
 console.log(targets)
 // Rest
 function showList(empresa, clientes){
+
     targets.forEach(target => {
-        target.innerText = clientes, empresa;
+        target.innerText = clientes[target]
     })
+    
+
 }
 
 showList('Google', ['Carlos', 'Solange', 'Saymon'])
