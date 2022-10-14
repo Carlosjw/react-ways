@@ -17,8 +17,10 @@ console.log(targets)
 // Rest
 function showList(empresa, clientes){
 
-    targets.forEach(target => {
-        target.innerText = clientes[target]
+    targets.map(target => {
+        clientes.forEach(cliente => {
+            target.innerText = cliente
+        })
     })
     
 
