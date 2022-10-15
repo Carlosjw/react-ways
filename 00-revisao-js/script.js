@@ -1,12 +1,12 @@
-// const target = document.getElementById('target');
+const target = document.getElementById('target');
 
 const upperName = (name) => name.toUpperCase();
-target.innerText = upperName('Carlos');
+// target.innerText = upperName('Carlos');
 
 // destructuring
 function handleMouse(event){
     const{clientX, clientY} = event;
-    target.innerText = `Eixo X => ${clientX} e Eixo Y => ${clientY}`;
+    // target.innerText = `Eixo X => ${clientX} e Eixo Y => ${clientY}`;
     console.log(event)
 }
 
@@ -19,7 +19,7 @@ function showList(empresa, clientes){
 
     targets.map(target => {
         clientes.forEach(cliente => {
-            target.innerText = cliente
+            // target.innerText = cliente
         })
     })
     
@@ -27,3 +27,9 @@ function showList(empresa, clientes){
 }
 
 showList('Google', ['Carlos', 'Solange', 'Saymon'])
+
+// spread operator [...]
+const numeros = [10, 5, 20];
+const maior = Math.max(...numeros);
+
+target.innerText = maior;
