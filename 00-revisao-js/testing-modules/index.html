@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testando</title>
+    <style>
+        *{
+            border: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        fieldset{
+            width: 500px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: silver;
+            justify-content: space-between;
+            padding: 20px;
+            /* gap: 10px; */
+            border: none;
+            border-radius: 5px;
+            box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        legend {
+            width: 70px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: silver;
+            border-radius: 3px;
+
+        }
+
+        input {
+            text-align: center;
+            border: none;
+            height: 30px;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: inset 2px 3px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        #calcule-area{
+            display: flex;
+            align-items: center;
+            /* justify-content: space-between; */
+            gap: 10px;
+        }
+
+         #calcule-area span {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+         }
+
+        #calcule-area span:last-child{
+            font-size: 24px;
+            font-weight: 600;
+            color: brown;
+        }
+
+        button{
+            flex: 1;
+            width: 150px;
+            height: 50px;
+            font-size: 18px;
+            padding: 10px;
+            background: skyblue;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+
+        button:hover{
+            color: #ffff;
+            background: blue;
+            transition: 0.5s;
+        }
+
+          button:active{
+            box-shadow: inset 2px 3px 6px rgba(0, 0, 0, 0.5);
+          }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>Dados</legend>
+        <label for="weight">Peso</label>
+        <input type="number" id="weight" placeholder="Digite seu peso...">
+        <label for="height">Altura</label>
+        <input type="number" id="height" placeholder="Digite sua altura...">
+        <div id="calcule-area">
+            <button>Calculate</button>
+            <span>IMC:</span>
+            <span id="target"></span>
+        </div>
+    </fieldset>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
