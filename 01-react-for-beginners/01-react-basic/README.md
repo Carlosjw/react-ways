@@ -51,3 +51,40 @@ const MainNav = () => {
     );
 };
 ```
+
+# Eventos
+Podemos atribuir eventos diretamente aos elementos:
+
+```js
+const Produtos = () => {
+    function handleClick(event){
+        alert('Comprou: ' + event.target.innerText);
+    }
+
+    return (
+        <div>
+            <button onClick={handleClick}>Camisa</button>        
+            <button onClick={handleClick}>Bermuda</button>        
+        </div>
+    );
+};
+```
+
+# `Hooks`
+Utilizamos o React pela facilidade de sincronização do estado.
+Antes dos `Hooks`, isso só era possível em componentes criados por meio de classes.
+
+```js
+const Compras = () => {
+    // useState é um Hook que define uma variável reativa
+    const [count, setCount] = React.useState(0);
+
+    return (
+        <div>
+            <button onClick={() => setCount(count + 1)}>Comprar: {count}
+            <p>Tota: {count}</p>
+            <p>Preço: R$ {count * 250}</p>
+        </div>
+    )
+}
+```
