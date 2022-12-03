@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React para iniciantes </title>
+    <!-- Adicionando react à página -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Adicionando o Babel: responsável em tornar o código React compreensível ao navegador -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+
+    <!-- "Chamando o script Babel" -->
+    <script type="text/babel">
+
+        // forma mais usada
+        const Button = () => {
+            return <button>Comprar</button>
+        }
+
+        const Titulo = () => {
+            const numero = Math.random() * 1000
+            return <h1>Meu título {numero}</h1>
+        }
+
+        const App = () => {
+            return <div>
+                Meu App
+                <Titulo />
+                <Button/>
+                    <div>
+                        Compre aqui também.
+                        {/* reutilizando o componente button */}
+                        <Button/>
+                    </div>
+                </div>
+        }
+
+        // criando como classe: menos usado
+        // class Button extends React.Component {
+        //     render() {
+        //         return <button>Comprar</button>
+        //     }
+        // }
+
+        ReactDOM.render(<App />, document.querySelector("#app"))
+        /* 
+            Entendendo o render():
+
+            1° parâmetro é o elemento que queremos renderizar;
+            2° parâmetro e ONDE queremos renderizar.        
+        */
+    </script>
+</body>
+</html>
