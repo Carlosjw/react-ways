@@ -1,7 +1,7 @@
 {
-  "name": "03-webpack-e-babel",
+  "name": "app",
   "version": "1.0.0",
-  "description": "* Iniciar um pacote `npm` na pasta do seu aplicativo\r ```bash\r     npm init -y\r ```",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
@@ -11,12 +11,17 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.6.0",
+    "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }

@@ -74,8 +74,38 @@ index.html
 ```bash
     npm install @babel/core @babel/preset-react babel-loader --save-dev
 ```
+* Entendendo o código:
+  * `@babel/core`: núcleo do babbel;
+  * `@babel/preset-react`: pre-configuração do Bable específica para o React;
+  * `babel-loader`: loader para carregamento do babel (O webpack vem com quase nada instalado para que a plicação tenha apenas o que precisamos para trabalhar a medida que formos instalando o que precisamos)
 
-* Instalar o `webpack.js` para configurarmos o `babel` no `webpack`:
+* Cria o `webpack.config.js` para configurarmos o `babel` no `webpack`:
+
+```js
+module.exports = { // module.exports: função do NodeJS (+/- o mesmo que export default)
+    // Nos módulos
+    module: {
+        // Aplique as seguintes regras
+        rules: [
+            {
+                // Nos arquivos que teminam ($) com .js
+                test: /\.js$,
+                // Não procure por nada em node_modules
+                exclude: /node_modules/,
+                // Use o seguinte:
+                use: {
+                    // Babel
+                    loader: 'babel-loader',
+                    // Com as opções para o React
+                    options: {
+                        presets: ['@babel/preset-react'],
+                    },
+                },
+            },
+        ],
+    },
+}
+```
 
   
 
