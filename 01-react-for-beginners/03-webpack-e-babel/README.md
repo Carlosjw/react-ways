@@ -107,5 +107,30 @@ module.exports = { // module.exports: função do NodeJS (+/- o mesmo que export
 }
 ```
 
+# Loaders (CSS)
+O webpack é instalado com o mínimo de pacotes possíveis para funcionar com o Javascript. Para adicionarmos outras funcionalidades, como a importação de CSS, imagens, SVG etc, precisamos adicionar loaders específicos para cada situação.
+```bash
+npm install style-loader css-loader --save-dev
+```
+webpack.config.js
+
+```js
+module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-react'],
+                    },
+                },
+            },
+        ],
+    },
+}
+```
   
 
