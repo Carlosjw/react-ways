@@ -1,70 +1,226 @@
-# Getting Started with Create React App
+# Ambiente
+Apenas para deixarmos a interface mais limpa:
+```bash
+npx create react-app myapp
+```
+```bash
+ - src
+    - App.js
+    - index.js
+```
+* `index.js`
+  ```js
+    import React from 'react';
+    import ReacDOM from 'react-dom';
+    import App from './App';
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    ReactDOM.render(
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>
+    )
+  ```
 
-## Available Scripts
+* `App.js`
+  ```js
+  import React from 'react';
 
-In the project directory, you can run:
+  const App = () => {
+    return <div>App React</div>
+  }
 
-### `npm start`
+  export default App;
+  ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* `public/index.html`
+    ```html
+      <link rel="stylesheet" href="%PUBLIC_URL%/style.css">
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+      <!-- Endentendo:
+      => %PUBLIC_URL%/ : funcionalidade do CSS para buscar arquivo pelo caminho corretamente
+       -->
+    ```
 
-### `npm test`
+* `public/style.css`
+  ```css
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  html {
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+      Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-title: Georgia, 'Times New Roman', Times, serif;
+    --font-size: 1.2rem;
+    --color: #19f;
+    --color-light: #adf;
+    --color-dark: #018;
+    --radius: 0.2rem;
+  }
 
-### `npm run build`
+  body {
+    margin: 1.5rem;
+  }
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  body,
+  input,
+  textarea,
+  button {
+    font-size: var(--font-size);
+    font-family: var(--font);
+  }
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-title);
+  }
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  h1,
+  h2,
+  h3,
+  p,
+  ul {
+    margin: 1rem 0;
+  }
 
-### `npm run eject`
+  ul {
+    list-style: square;
+  }
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  li {
+    margin-bottom: 0.5rem;
+  }
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  label {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  input,
+  textarea {
+    display: block;
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: var(--radius);
+    background: #eee;
+    transition: 0.2s;
+  }
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--color);
+    background: white;
+    box-shadow: 0 0 0 3px var(--color-light);
+  }
 
-## Learn More
+  button {
+    cursor: pointer;
+    border: none;
+    border-radius: var(--radius);
+    transition: 0.1s;
+    background: var(--color);
+    color: var(--color-dark);
+    padding: 0.8rem 1.6rem;
+  }
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  button:hover,
+  button:focus {
+    background: var(--color);
+    box-shadow: 0 0 0 3px var(--color-light), 0 0 0 4px var(--color);
+    outline: none;
+  }
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  button:active {
+    box-shadow: 0 0 0 3px var(--color), 0 0 0 4px var(--color);
+  }
 
-### Code Splitting
+  button:disabled {
+    opacity: 0.5;
+    cursor: wait;
+  }
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  hr {
+    border: 2px solid black;
+    margin: 2rem auto;
+  }
 
-### Analyzing the Bundle Size
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* `.vscode/settings.json`
+```json
+{
+    "files.exclude": {
+        "node_modules": true,
+        ".vscode": true,
+        ".gitignore": true,
+        "package.json": true,
+        "package-lock.json": true,
+        "public": true
+    }
+}
+```
+  * Entendendo:
+    * `"files.exlude"`:
+      * É um objeto de configurações que contém os arquivos e pastas que não serão exibidos no nosso ambiente de trabalho, mas que ainda estão lá.
 
-### Making a Progressive Web App
+# JSX: Javascript Extendido
+  * Javascript XML/Extension. Estende a sintaxe do Javascript, indtroduzindo elementos como XML que são convertidos em funções React.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```js
+const Titulo = () => {
+  return <h1>Comprar</h1>;
+};
+```
+```js
+const Button = (0 => {
+  return <button>Comprar</button>;
+});
+```
+* É tranformado em:
+```js
+const Button = () => {
+  return React.cretaeElement('button', null, 'Comprar');
+};
+```
+| É possível utilizar a extensão .jsx
 
-### Advanced Configuration
+* Atributos
+Atributos podem ser passados como no HTML, porém com alguns casos especiais.
+```js
+const App = () => {
+  return (
+    <a href="https://www.jw.org>" title="Site Oficial das Testemunhas de Jeová">JW.ORG</a>
+  );
+};
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+* Casos especiais
+  O caso especial mais comum é o atributos `class`. Pelo fato de `class` ser uma palavra reservada do Javascript, o JSX resolveu mudar o nome para evitar conflitos. O correto é `className`.
+  ```js
+    const App = () => {
+      return <div className="grid">Origamid</div>;
+    };
+  ```
+  ```js
+    const app = () => {
+      return (
+        <form>
+          <label htmlForm="nome">Nome</label>
+          <input type="text" id="nome" />
+        </form>
+      );
+    };
+  ```
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  # `camelCase`
+    Atributos com nomes copostos devem ser utilizados como `camelCase`. Exemplo: `autoplay` vira `autoPlay`.
+    ```js
+      const App = () => {
+        return <video autoPlay />
+      }
+    ```
