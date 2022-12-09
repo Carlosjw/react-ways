@@ -224,3 +224,57 @@ const App = () => {
         return <video autoPlay />
       }
     ```
+
+# Expressões / Variáveis
+Expressões e variáveis podem ser colocadas dentro do JSX, utilizando chaves `{}`.
+```js
+  const App = () => {
+    const name = 'Carlos';
+    return <p>{name}</p>;
+  }
+```
+```js
+  const App = () => {
+    const desconto = 50;
+    const preco = 250;
+    return <p>{preco - desconto}</p>;
+  };
+  ```
+
+# JSX Expressions
+Você pode executar qualquer expressão dentro das chaves `{}`. Se o resultado da expressào for um número, string ou array de números/strings, o resultado irá aparecer na tela. Booleanos `{true/false}`, `undefined` e `null` não irão resultar em nada na tela. Objetos irão retornar um erro.
+```js
+  const App = () => {
+    function myName(){
+      return 'Carlos';
+    }
+
+    function quadrado(x){
+      return x * x;
+    }
+
+    const carro = {
+      rodas: 4,
+      marca: 'Ford'
+    }
+  }
+```
+
+# Style
+O `style` irá receber um objeto com as propriedades do elemento em `camelCase`.
+```js
+  const App = () => {
+    const estiloH1 = {
+      color: 'blue',
+      fontSize: '20px',
+      fontFamily: 'Helvética',
+    };
+
+    return (
+      <div>
+        <h1 style={estiloH1}>Empresa</h1>
+        <p style={{color: 'green'}}>Sempre aberta</p>
+      </div>
+    )
+  }
+```
