@@ -23,7 +23,7 @@ const mario = {
   ativa: false,
 }
 
-const styleActivo = {
+const styleAtivo = {
     color: 'green'
 }
 
@@ -32,11 +32,17 @@ const styleInativo = {
 }
 
 const App = () => {
-  const dados = luana;
-
+  const dados = mario;
+  let sitituacao = dados.ativa ? "Ativa" : "Inativa"; 
+  let gastos = Object.keys(dados.compras);
+  console.log(gastos)
+  
+  console.log(gastos) 
   return (
     <div className="App">
-      <p style={styleInativo}>Teste</p>
+      <p>Nome: {dados.cliente}</p>
+      <p>Idade: {dados.idade}</p>
+      <p>Situação: <span style={dados.ativa ? styleAtivo : styleInativo}>{sitituacao}</span></p>
     </div>
   );
 }
