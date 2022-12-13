@@ -23,6 +23,7 @@ const mario = {
   ativa: false,
 }
 
+// stilos
 const styleAtivo = {
     color: 'green'
 }
@@ -31,19 +32,33 @@ const styleInativo = {
     color: 'red'
 }
 
+// definindo teto de gastos
+const tetoGasto = 10000;
+
 const App = () => {
-  const dados = mario;
-  let sitituacao = dados.ativa ? "Ativa" : "Inativa"; 
-  let gastos = Object.keys(dados.compras);
-  console.log(gastos)
-  
-  console.log(gastos) 
+  const dados = luana;
+
+  // verificando situação do usuário
+  let situacao = dados.ativa ? "Ativa" : "Inativa"; 
+
+  // somando todos os gastos do usuário
+ let gastos = dados.compras.reduce((accumulator, object) => {
+  return accumulator + Number(object.preco.replace("R$ ", ""))
+ }, 0);
+
+ // exibindo mensagem de acordo com os gastos do usuario
+ let status = gastos > tetoGasto ? "Você está gastando demais!" : "";
+
   return (
-    <div className="App">
+    <>
+      {/* Exibindo informções em tela */}
       <p>Nome: {dados.cliente}</p>
       <p>Idade: {dados.idade}</p>
-      <p>Situação: <span style={dados.ativa ? styleAtivo : styleInativo}>{sitituacao}</span></p>
-    </div>
+      <p>Situação: <span style={dados.ativa ? styleAtivo : styleInativo}>{situacao}</span></p>
+      {/* Formatação monetária brasileira */}
+      <p>Total gasto: <span style={gastos < tetoGasto ? styleAtivo : styleInativo}>{gastos.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span></p>
+      <span style={styleInativo}>{status}</span>
+    </>
   );
 }
 
