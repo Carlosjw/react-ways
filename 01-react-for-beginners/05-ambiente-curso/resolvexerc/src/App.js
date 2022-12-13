@@ -28,7 +28,7 @@ function App() {
 
   let total = dados.compras
   .map(item => Number(item.preco.replace("R$ ", "")))
-  .reduce((beforeValue, atualValue) => beforeValue + atualValue)
+  .reduce((beforeValue, atualValue) => beforeValue + atualValue);
 
   return (
     <div className="App">
